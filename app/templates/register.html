@@ -1,0 +1,112 @@
+<div ng-controller="registerCtrl">
+    <form class="form-horizontal" name="registerForm" novalidate>
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">First Name</label>
+
+
+
+
+
+            <div class="col-xs-4">
+                <input type="text" class="form-control" placeholder="First Name" ng-model="registerUser.firstName" name="firstName" ng-required="true" ng-minlength="4" ng-maxlength="15" ng-pattern="/^[a-zA-Z ]*$/">
+                <div ng-show="registerForm.firstName.$dirty">
+                    <p ng-show="registerForm.firstName.$error.required"> First Name required</p>
+                    <p ng-show="registerForm.firstName.$error.minlength"> Minimum Length is 4 characters</p>
+                    <p ng-show="registerForm.firstName.$error.maxlength"> Max Length is 15 characters</p>
+                    <p ng-show="registerForm.firstName.$error.pattern"> Please enter alphabets only.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">Last Name</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" placeholder="Last Name" ng-model="registerUser.lastName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">Age</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" ng-model="registerUser.age" placeholder="Age">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">Country</label>
+            <div class="col-xs-4">
+                <select class="form-control" ng-model="selectedCountry" ng-options="item.name for item in countries" ng-change="loadStates()">
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">Country</label>
+            <div class="col-xs-4">
+                <select class="form-control" ng-model="xxxx" ng-options="item.stateName group by item.countryCode for item in groupedStates">
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">States</label>
+            <div class="col-xs-4">
+                <select class="form-control" ng-model="selectedState" ng-options="state.stateName for state in states">
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">Phone Number</label>
+            <div class="input-group input-group-sm col-xs-4">
+                <span class="input-group-addon">{{selectedCountry.phonecode}}</span>
+                <input type="text" class="form-control" ng-model="registerUser.phonenumber" name="phonenumber" placeholder="Phone Number" ng-pattern="phonePattern">
+            </div>
+            <div ng-show="registerForm.phonenumber.$dirty">
+                <p ng-show="registerForm.phonenumber.$error.pattern">Invalid Number</p>
+                <p ng-show="registerForm.phonenumber.$error.maxlength">Maximum allowed legnth is 10</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label col-xs-2">Gender</label>
+            <div class="col-xs-4">
+                <input type="radio" value="M" name="gender" ng-model="registerUser.gender">M
+                <input type="radio" value="F" name="gender" ng-model="registerUser.gender">F
+                <input type="radio" value="NA" name="gender" ng-model="registerUser.gender">Don't Reveal
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model=" registerUser.terms" ng-click="checkFields()"> I Agree Terms</label>
+                </div>
+            </div>
+        </div>
+        <div class=" form-group ">
+            <div class="col-xs-offset-2 col-xs-4 ">
+                <button type="button " class="btn btn-primary " ng-disabled="!enableButton" ng-click="register()">Register</button>
+            </div>
+        </div>
+    </form>
+    <pre>{{registerUser|json}}</pre>
+</div>

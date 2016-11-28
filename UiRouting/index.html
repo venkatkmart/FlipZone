@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="flipzone">
+
+<head>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+
+    <script src="vendor/angular-ui-router.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+
+    <div ng-include="'app/templates/header.html'"></div>-->
+    <!--attribute-->
+    <div nb-header-property></div>
+
+    <!--element-->
+    <!--<nb-header-property></nb-header-property>-->
+    <!-- class-->
+    <!--<div class="nb-header-property"></div>-->
+
+    <div ui-view></div>
+    <input type="text" ng-model="company">
+    <h1>In the main page {{company}}</h1>
+
+    <div nb-two-way header-name="{{company}}"></div>
+
+
+    <script src="app/authenticate/authenticate.js"></script>
+    <script src="app/authenticate/authenticateSvc.js"></script>
+    <script src="app/main/main.js"></script>
+    <script src="app/main/mainCtrl.js"></script>
+
+    <script src="app/products/products.js"></script>
+    <script src="app/products/productsCtrl.js"></script>
+    <script src="app/products/productSvc.js"></script>
+
+    <script src="app/register/register.js"></script>
+    <script src="app/register/registerCtrl.js"></script>
+
+    <script src="app/login/login.js"></script>
+    <script src="app/login/loginCtrl.js"></script>
+
+    <script src="app/components/components.js"></script>
+    <script src="app/components/nbHeader.js"></script>
+    <script src="app/components/nbAlphabets.js"></script>
+    <script src="app/components/nbNumbers.js"></script>
+    <script src="app/components/nbDatePicker.js"></script>
+    <script src="app/components/nbLogo.js"></script>
+    <script src="app/components/nbTwoWay.js"></script>
+    <script src="app/components/nbRegister.js"></script>
+    <script src="app/components/nbCheckUser.js"></script>
+
+    <script src="app/app.js"></script>
+
+</body>
+
+</html>

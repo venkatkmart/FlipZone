@@ -1,0 +1,19 @@
+<div ng-controller="cartCtrl">
+
+    <table class="table table-striped">
+        <tr>
+            <td>S.No</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Price</td>
+        </tr>
+        <tr ng-repeat="product in cartProducts">
+            <td>{{$index+1}}</td>
+            <td>{{product.model}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price|currency :"Rs."}}</td>
+        </tr>
+    </table>
+
+</div>
+
